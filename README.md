@@ -1,7 +1,7 @@
 # Anvil-Hub Documentation
 To load the module insert
 
-#`
+`
 local module = loadstring(game:HttpGet("https://raw.githubusercontent.com/JBxSlash/Anvil-Hub/main/main.lua"))()
 `
 
@@ -15,7 +15,7 @@ Now that we have this, lets make the main tab
 
 `
 local tab = main.newTab("Main")
-`.
+`
 
 Now we have two options, a input, a toggle, or button
 
