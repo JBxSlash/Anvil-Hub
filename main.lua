@@ -43,7 +43,7 @@ function gui.main(Name)
 	--Properties:
 
 	Keflar.Name = "Keflar"
-	Keflar.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+	Keflar.Parent = game.CoreGui
 	
 	bg.Name = "bg"
 	bg.Parent = Keflar
@@ -95,7 +95,7 @@ function gui.main(Name)
 	objName.Position = UDim2.new(0.0299999993, 0, 0.204999998, 0)
 	objName.Size = UDim2.new(0.443364769, 0, 0.600869834, 0)
 	objName.Font = Enum.Font.Nunito
-	objName.Text = "Yelloware"
+	objName.Text = Name
 	objName.TextColor3 = Color3.fromRGB(255, 255, 255)
 	objName.TextScaled = true
 	objName.TextSize = 14.000
