@@ -1,6 +1,10 @@
 local gui = {}
 local lastIndex = 1
 function gui.main(Name)
+	local locateFile = getsynasset or getcustomasset or function(location) return "rbxasset://"..location end
+	local p = writefile("Avil_Blur.png",game:HttpGet("https://github.com/JBxSlash/Anvil-Hub/blob/main/WindowBlur.png?raw=true"))
+	local blur = locateFile("Avil_Blur.png")
+	
 	local Keflar = Instance.new("ScreenGui")
 	local bg = Instance.new("ImageLabel")
 	local mf = Instance.new("Frame")
@@ -190,7 +194,7 @@ function gui.main(Name)
 	input.BackgroundTransparency = 1.000
 	input.Position = UDim2.new(0.0195618067, 0, 0, 0)
 	input.Size = UDim2.new(0.948938131, 0, 0.150000021, 0)
-	input.Image = "http://www.roblox.com/asset/?id=10638617078"
+	input.Image = blur
 	input.ImageColor3 = Color3.fromRGB(10, 10, 10)
 	input.SliceCenter = Rect.new(100, 100, 100, 100)
 	input.SliceScale = 0.120
@@ -244,7 +248,7 @@ function gui.main(Name)
 	toggle.BackgroundTransparency = 1.000
 	toggle.Position = UDim2.new(1.90100646, 0, -0.238698348, 0)
 	toggle.Size = UDim2.new(0.948938131, 0, 0.150000021, 0)
-	toggle.Image = "http://www.roblox.com/asset/?id=10638617078"
+	toggle.Image = blur
 	toggle.ImageColor3 = Color3.fromRGB(10, 10, 10)
 	toggle.SliceCenter = Rect.new(100, 100, 100, 100)
 	toggle.SliceScale = 0.120
