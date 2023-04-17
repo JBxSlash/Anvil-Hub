@@ -14,7 +14,7 @@ function gui.main(Name)
 	local mini = Instance.new("ImageButton")
 	local sets = Instance.new("Frame")
 	local mf_2 = Instance.new("ScrollingFrame")
-	local UIListLayout = Instance.new("UIListLayout")
+	local UIListLayout = Instance.new("UIGridLayout")
 	local main = Instance.new("Frame")
 	local mf_3 = Instance.new("ScrollingFrame")
 	local UIListLayout_2 = Instance.new("UIListLayout")
@@ -42,15 +42,15 @@ function gui.main(Name)
 
 	--Properties:
 
-	Keflar.Name = "Keflar"
+	Keflar.Name = math.random(1000,9999)
 	Keflar.Parent = game.CoreGui
-	
+
 	bg.Name = "bg"
 	bg.Parent = Keflar
 	bg.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	bg.BackgroundTransparency = 1.000
 	bg.Position = UDim2.new(0.0486725569, 0, 0.166666672, 0)
-	bg.Size = UDim2.new(0, 283, 0, 329)
+	bg.Size = UDim2.new(0, 400, 0, 329)
 	bg.Image = "http://www.roblox.com/asset/?id=10638617078"
 	bg.ImageColor3 = Color3.fromRGB(0, 0, 0)
 	bg.SliceCenter = Rect.new(100, 100, 100, 100)
@@ -107,7 +107,7 @@ function gui.main(Name)
 	max.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	max.BackgroundTransparency = 1.000
 	max.Position = UDim2.new(0.885622323, 0, 0.209070012, 0)
-	max.Size = UDim2.new(0.0814570263, 0, 0.585500479, 0)
+	max.Size = UDim2.new(0.05, 0, 0.585500479, 0)
 	max.Image = "rbxasset://textures/AvatarImporter/button_close.png"
 
 	mini.Name = "mini"
@@ -115,7 +115,7 @@ function gui.main(Name)
 	mini.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	mini.BackgroundTransparency = 1.000
 	mini.Position = UDim2.new(0.770229101, 0, 0.190066263, 0)
-	mini.Size = UDim2.new(0.0814570263, 0, 0.585500479, 0)
+	mini.Size = UDim2.new(0.05, 0, 0.585500479, 0)
 	mini.Image = "rbxasset://textures/ui/MenuBar/icon_minimize.png"
 
 	sets.Name = "sets"
@@ -124,29 +124,30 @@ function gui.main(Name)
 	sets.BackgroundTransparency = 0.500
 	sets.BorderSizePixel = 0
 	sets.Position = UDim2.new(0, 0, 0.128000006, 0)
-	sets.Size = UDim2.new(1.00000012, 0, 0.117858201, 0)
+	sets.Size = UDim2.new(1.00000012, 0, .751, 0)
 
 	mf_2.Name = "mf"
 	mf_2.Parent = sets
 	mf_2.Active = true
 	mf_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	mf_2.BackgroundTransparency = 1.000
-	mf_2.Size = UDim2.new(1, 0, 1, 0)
+	mf_2.Size = UDim2.new(.275, 0, 1, 0)
 	mf_2.CanvasSize = UDim2.new(0, 0, 0, 0)
 	mf_2.HorizontalScrollBarInset = Enum.ScrollBarInset.Always
 	mf_2.ScrollBarThickness = 0
 
 	UIListLayout.Parent = mf_2
-	UIListLayout.FillDirection = Enum.FillDirection.Horizontal
+	UIListLayout.FillDirection = Enum.FillDirection.Vertical
 	UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+	UIListLayout.CellSize = UDim2.new(0, 90,0, 23)
 
 	main.Name = "main"
 	main.Parent = mf
 	main.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
 	main.BackgroundTransparency = 0.500
 	main.BorderSizePixel = 0
-	main.Position = UDim2.new(0, 0, 0.282783389, 0)
-	main.Size = UDim2.new(1.00000048, 0, 0.717216551, 0)
+	main.Position = UDim2.new(.275, 0, 0.125, 0)
+	main.Size = UDim2.new(.725, 0, 0.875, 0)
 
 	mf_3.Name = "mf"
 	mf_3.Parent = main
@@ -154,6 +155,7 @@ function gui.main(Name)
 	mf_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	mf_3.BackgroundTransparency = 1.000
 	mf_3.Size = UDim2.new(1, 0, 1, 0)
+	mf_3.Position = UDim2.new(0,0,0,0)
 	mf_3.CanvasSize = UDim2.new(0, 0, 0, 0)
 	mf_3.HorizontalScrollBarInset = Enum.ScrollBarInset.Always
 	mf_3.ScrollBarThickness = 0
@@ -167,7 +169,7 @@ function gui.main(Name)
 	smee.Parent = mf
 	smee.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	smee.BackgroundTransparency = 1.000
-	smee.Position = UDim2.new(0.0320000015, 0, 0.230000004, 0)
+	smee.Position = UDim2.new(0.0320000015, 0, .942, 0)
 	smee.Size = UDim2.new(0.968500555, 0, 0.0588619448, 0)
 	smee.Font = Enum.Font.Nunito
 	smee.Text = ""
@@ -198,7 +200,7 @@ function gui.main(Name)
 	Frame.BorderSizePixel = 0
 	Frame.Position = UDim2.new(0.00999999978, 0, 0.0500000007, 0)
 	Frame.Size = UDim2.new(0.980000019, 0, 0.899999976, 0)
-	
+
 	local uistroke1 = Instance.new("UIStroke",Frame)
 	uistroke1.Color = Color3.fromRGB(100,100,100)
 
@@ -246,15 +248,15 @@ function gui.main(Name)
 	toggle.ImageColor3 = Color3.fromRGB(10, 10, 10)
 	toggle.SliceCenter = Rect.new(100, 100, 100, 100)
 	toggle.SliceScale = 0.120
-	
-	
+
+
 
 	Frame_2.Parent = toggle
 	Frame_2.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
 	Frame_2.BorderSizePixel = 0
 	Frame_2.Position = UDim2.new(0.00999999978, 0, 0.0500000007, 0)
 	Frame_2.Size = UDim2.new(0.980000019, 0, 0.899999976, 0)
-	
+
 	local uistroke = Instance.new("UIStroke",Frame_2)
 	uistroke.Color = Color3.fromRGB(100,100,100)
 
@@ -308,17 +310,16 @@ function gui.main(Name)
 	Sets.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	Sets.BackgroundTransparency = 1.000
 	Sets.Size = UDim2.new(0, 0, 1, 0)
-	
-	
+
 
 	Frame_3.Parent = Sets
 	Frame_3.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
 	Frame_3.Position = UDim2.new(0, 5, 0, 5)
-	Frame_3.Size = UDim2.new(0, 55, 0, 23)
-	
+	Frame_3.Size = UDim2.new(0, 90, 0, 23)
+
 	local uistroke = Instance.new("UIStroke",Frame_3)
 	uistroke.Color = Color3.fromRGB(100,100,100)
-	
+
 	UICorner_8.CornerRadius = UDim.new(1, 0)
 	UICorner_8.Parent = Frame_3
 
@@ -331,19 +332,34 @@ function gui.main(Name)
 	TextLabel_3.Text = " Main "
 	TextLabel_3.TextColor3 = Color3.fromRGB(255, 255, 255)
 	TextLabel_3.TextSize = 20.000
+	Sets.Parent = Keflar.Parent
 	local functions = {}
 	function functions.newTab(Name)
-		TextLabel_3.Text = Name
-		local new = Storage.Sets:Clone()
-		new.Parent = bg.mf.sets.mf
+		for i, v in pairs(main:GetChildren()) do
+			if v ~= mf_3 then
+				v.Visible = false
+			end
+		end
+		
+		local new = Sets:Clone()
+		new.Parent = mf_2
+		new.Frame.TextButton.Text = Name
 		local storage = main.mf:Clone()
 		storage.Parent = main
 		storage.ZIndex = 0
 		storage.Name = Name
 		local funcs = {}
+		
+		storage.Visible = true
+		smee.Text = Name
+		
 		new.Frame.TextButton.MouseButton1Down:Connect(function()
-			lastIndex += 1
-			storage.ZIndex = lastIndex
+			for i, v in pairs(main:GetChildren()) do
+				if v ~= mf_3 then
+					v.Visible = false
+				end
+			end
+			storage.Visible = true
 			smee.Text = Name
 		end)
 		function funcs.newToggle(Name,Value)
@@ -367,7 +383,7 @@ function gui.main(Name)
 			local n = toggle:Clone()
 			n.Parent = storage
 			n.Frame.TextLabel.Text = Name
-			
+
 			local toggled = Instance.new("BindableFunction")
 			n.Frame.toggle.Image = bg.Image
 			n.Frame.toggle.ImageColor3 = bg.ImageColor3
@@ -387,6 +403,15 @@ function gui.main(Name)
 				toggled:Invoke()
 			end)
 			return toggled
+		end
+		function funcs.newText(Text)
+			local n = toggle:Clone()
+			n.Parent = storage
+			n.Frame.toggle:Destroy()
+			n.Frame.TextLabel.Text = Name
+			n.Frame.TextLabel.Position = UDim2.new(0,0,0,0)
+			n.Frame.TextLabel.Size = UDim2.new(1,0,1,0)
+			n.Frame.TextLabel.TextXAlignment = Enum.TextXAlignment.Center
 		end
 		function funcs.newInput(Name,Value,numbers)
 			if not numbers then
@@ -410,13 +435,13 @@ function gui.main(Name)
 						n.Frame.TextBox.Text = old
 					end
 				end
-				
+
 			end)
 			return toggled
 		end
-		return {["newToggle"] = funcs.newToggle,["newInput"] = funcs.newInput,["newButton"]=funcs.newButton}
+		return {["newToggle"] = funcs.newToggle,["newInput"] = funcs.newInput,["newButton"]=funcs.newButton,["newText"]=funcs.newText}
 	end
-	
+
 	local b2 = bat:Clone()
 	b2.Parent = bg.mf
 	b2.half:Destroy()
@@ -469,7 +494,7 @@ function gui.main(Name)
 		local start = bg.AbsolutePosition
 		local mouseStart = nil
 		local isDraggable, mousedown = false, false
-		
+
 		bat.MouseEnter:Connect(function()
 			isDraggable = true
 		end)
