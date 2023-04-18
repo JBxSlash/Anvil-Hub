@@ -449,7 +449,7 @@ function gui.main(Name)
 			local n = toggle:Clone()
 			n.Parent = storage
 			n.Frame.toggle:Destroy()
-			n.Frame.TextLabel.Text = Name
+			n.Frame.TextLabel.Text = Text
 			n.Frame.TextLabel.Position = UDim2.new(0,0,0,0)
 			n.Frame.TextLabel.Size = UDim2.new(1,0,1,0)
 			n.Frame.TextLabel.TextXAlignment = Enum.TextXAlignment.Center
