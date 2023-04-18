@@ -437,6 +437,8 @@ function gui.main(Name)
 			nt.TextColor3 = Color3.fromRGB(255,255,255)
 			nt.Parent = n.Frame.toggle
 			Instance.new("UICorner",n.Frame.toggle)
+			local uistroke1 = Instance.new("UIStroke",n)
+			uistroke1.Color = Color3.fromRGB(100,100,100)
 			n.Frame.toggle.MouseButton1Down:Connect(function()
 				n.Frame.toggle.ImageColor3 = Color3.fromRGB(100,100,100)
 				game:GetService("TweenService"):Create(n.Frame.toggle,TweenInfo.new(1,Enum.EasingStyle.Quad),{ImageColor3 = bg.ImageColor3}):Play(0)
