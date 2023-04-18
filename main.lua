@@ -241,14 +241,14 @@ function gui.main(Name)
 
 	UICorner_5.CornerRadius = UDim.new(0, 3)
 	UICorner_5.Parent = input
-
+	
 	toggle.Name = "toggle"
 	toggle.Parent = Storage
 	toggle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	toggle.BackgroundTransparency = 1.000
 	toggle.Position = UDim2.new(1.90100646, 0, -0.238698348, 0)
 	toggle.Size = UDim2.new(0.948938131, 0, 0.150000021, 0)
-	toggle.Image = blur
+	toggle.Image = "http://www.roblox.com/asset/?id=10638617078"
 	toggle.ImageColor3 = Color3.fromRGB(10, 10, 10)
 	toggle.SliceCenter = Rect.new(100, 100, 100, 100)
 	toggle.SliceScale = 0.120
@@ -285,7 +285,7 @@ function gui.main(Name)
 	toggle_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	toggle_2.BackgroundTransparency = 1.000
 	toggle_2.Position = UDim2.new(0.818107247, 0, 0.152460203, 0)
-	toggle_2.Size = UDim2.new(0.152857512, 0, 0.681878567, 0)
+	toggle_2.Size = UDim2.new(0.125, 0, 0.681878567, 0)
 	toggle_2.Image = "rbxasset://textures/TerrainTools/import_toggleOff_dark.png"
 
 	on.Name = "on"
@@ -293,18 +293,18 @@ function gui.main(Name)
 	on.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	on.BackgroundTransparency = 1.000
 	on.Position = UDim2.new(0.818107247, 0, 0.152460203, 0)
-	on.Size = UDim2.new(0.152857512, 0, 0.681878567, 0)
+	on.Size = UDim2.new(0.125, 0, 0.681878567, 0)
 	on.Visible = false
-	on.Image = "rbxasset://textures/TerrainTools/import_toggleOn.png"
+	on.Image = "rbxasset://textures/RoactStudioWidgets/toggle_on_disable_light.png"
 
 	off.Name = "off"
 	off.Parent = Frame_2
 	off.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	off.BackgroundTransparency = 1.000
 	off.Position = UDim2.new(0.818107247, 0, 0.152460203, 0)
-	off.Size = UDim2.new(0.152857512, 0, 0.681878567, 0)
+	off.Size = UDim2.new(0.125, 0, 0.681878567, 0)
 	off.Visible = false
-	off.Image = "rbxasset://textures/TerrainTools/import_toggleOff_dark.png"
+	off.Image = "rbxasset://textures/RoactStudioWidgets/toggle_disable_dark.png"
 
 	UICorner_7.CornerRadius = UDim.new(0, 3)
 	UICorner_7.Parent = toggle
@@ -337,7 +337,30 @@ function gui.main(Name)
 	TextLabel_3.TextColor3 = Color3.fromRGB(255, 255, 255)
 	TextLabel_3.TextSize = 20.000
 	Sets.Parent = Keflar.Parent
+	
+	local function setSelector(v,bool)
+		if bool then
+			local ng = Instance.new("UIGradient")
+			ng.Color = ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(255,255,255)),ColorSequenceKeypoint.new(0.5,Color3.fromRGB(255,255,255)),ColorSequenceKeypoint.new(1,Color3.fromRGB(200,200,200))})
+			ng.Rotation = 90
+			ng.Parent = v.Parent
+			v.Parent.BackgroundColor3 = Color3.fromRGB(255,255,255)
+			v.TextColor3 = Color3.fromRGB(0,0,0)
+			game:GetService("TweenService"):Create(v.Parent,TweenInfo.new(.1,Enum.EasingStyle.Quad),{Size = UDim2.new(0, 90, 0, 23) }):Play(0)
+		else
+			local ng = v.Parent:FindFirstChildOfClass("UIGradient")
+			if ng then
+				ng:Destroy()
+			end
+			game:GetService("TweenService"):Create(v.Parent,TweenInfo.new(.1,Enum.EasingStyle.Quad),{Size = UDim2.new(0, 90* .9, 0, 23* .9) }):Play(0)
+			
+			v.Parent.BackgroundColor3 = Color3.fromRGB(24,24,24)
+			v.TextColor3 = Color3.fromRGB(255,255,255)
+		end
+	end
+	
 	local functions = {}
+	local buttons = {}
 	function functions.newTab(Name)
 		for i, v in pairs(main:GetChildren()) do
 			if v ~= mf_3 then
@@ -348,6 +371,7 @@ function gui.main(Name)
 		local new = Sets:Clone()
 		new.Parent = mf_2
 		new.Frame.TextButton.Text = Name
+		table.insert(buttons,new.Frame.TextButton)
 		local storage = main.mf:Clone()
 		storage.Parent = main
 		storage.ZIndex = 0
@@ -356,11 +380,24 @@ function gui.main(Name)
 		
 		storage.Visible = true
 		smee.Text = Name
-		
+		for i, v in pairs(buttons) do
+			if v ~= new.Frame.TextButton then
+				setSelector(v,false)
+			else
+				setSelector(v,true)
+			end
+		end
 		new.Frame.TextButton.MouseButton1Down:Connect(function()
 			for i, v in pairs(main:GetChildren()) do
 				if v ~= mf_3 then
 					v.Visible = false
+				end
+			end
+			for i, v in pairs(buttons) do
+				if v ~= new.Frame.TextButton then
+					setSelector(v,false)
+				else
+					setSelector(v,true)
 				end
 			end
 			storage.Visible = true
@@ -412,7 +449,7 @@ function gui.main(Name)
 			local n = toggle:Clone()
 			n.Parent = storage
 			n.Frame.toggle:Destroy()
-			n.Frame.TextLabel.Text = Text
+			n.Frame.TextLabel.Text = Name
 			n.Frame.TextLabel.Position = UDim2.new(0,0,0,0)
 			n.Frame.TextLabel.Size = UDim2.new(1,0,1,0)
 			n.Frame.TextLabel.TextXAlignment = Enum.TextXAlignment.Center
@@ -452,10 +489,10 @@ function gui.main(Name)
 	b2.half:Destroy()
 	b2.objName:Destroy()
 	b2.Size = UDim2.new(.25, 0,0.118, 0)
-	b2.max.Size = UDim2.new(.5,0,1,0)
-	b2.max.Position = UDim2.new(.5,0,0,0)
-	b2.mini.Position = UDim2.new(0,0,0,0)
-	b2.mini.Size = UDim2.new(.5,0,1,0)
+	b2.max.Size = UDim2.new(.25,0,.7,0)
+	b2.max.Position = UDim2.new(.6,0,.15,0)
+	b2.mini.Position = UDim2.new(.15,0,.15,0)
+	b2.mini.Size = UDim2.new(.25,0,.7,0)
 	b2.Visible = false
 	max.MouseButton1Down:Connect(function()
 		game:GetService("TweenService"):Create(bg,TweenInfo.new(.5,Enum.EasingStyle.Quad),{ImageTransparency = 1}):Play(0)
@@ -531,3 +568,4 @@ function gui.main(Name)
 	return {[".identity"] = Keflar,["newTab"] = functions.newTab}
 end
 return gui
+
