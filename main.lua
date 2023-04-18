@@ -437,7 +437,7 @@ function gui.main(Name)
 			nt.TextColor3 = Color3.fromRGB(255,255,255)
 			nt.Parent = n.Frame.toggle
 			Instance.new("UICorner",n.Frame.toggle)
-			local uistroke1 = Instance.new("UIStroke",n)
+			local uistroke1 = Instance.new("UIStroke",n.Frame.toggle)
 			uistroke1.Color = Color3.fromRGB(100,100,100)
 			n.Frame.toggle.MouseButton1Down:Connect(function()
 				n.Frame.toggle.ImageColor3 = Color3.fromRGB(100,100,100)
