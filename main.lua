@@ -285,7 +285,7 @@ function gui.main(Name)
 	toggle_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	toggle_2.BackgroundTransparency = 1.000
 	toggle_2.Position = UDim2.new(0.818107247, 0, 0.152460203, 0)
-	toggle_2.Size = UDim2.new(0.125, 0, 0.681878567, 0)
+	toggle_2.Size = UDim2.new(0.15, 0, 0.681878567, 0)
 	toggle_2.Image = "rbxasset://textures/TerrainTools/import_toggleOff_dark.png"
 
 	on.Name = "on"
